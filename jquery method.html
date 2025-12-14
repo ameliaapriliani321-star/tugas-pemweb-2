@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifikasi dengan jQuery Method Chaining</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #notification {
+            display: none;
+            background-color: #f4f;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px auto;
+            width: 300px;
+            position: relative;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Notifikasi dengan Animasi Chaining</h1>
+    <button id="showNotification">Tampilkan Notifikasi</button>
+    <div id="notification">
+        <p>Ini adalah notifikasi dengan animasi chaining!</p>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('#showNotification').click(function(){
+                $('#notification')
+                    .css('color', 'red')  // Ubah warna teks menjadi merah
+                    .fadeIn(1000)        // Fade In selama 1 detik
+                    .slideDown(1000)     // Slide Down selama 1 detik (meskipun sudah fadeIn, ini untuk efek tambahan)
+                    .delay(3000)         // Tunggu 3 detik
+                    .slideUp(1000)       // Slide Up selama 1 detik
+                    .fadeOut(1000);      // Fade Out selama 1 detik
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow jQuery Effects</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #slideshow {
+            position: relative;
+            width: 500px;
+            height: 300px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+        .slide {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        .slide:first-child {
+            display: block;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Slideshow Gambar Sederhana</h1>
+    <div id="slideshow">
+        <img src="https://i.pinimg.com/474x/f1/0a/7f/f10a7f44f0129b55adac594089b79be0.jpg" alt="Gambar 1" class="slide">
+        <img src="https://i.pinimg.com/736x/b4/f4/a0/b4f4a036ad243cc836d3b961b5723ca9.jpg" alt="Gambar 2" class="slide">
+        <img src="https://i.pinimg.com/originals/d7/0d/1f/d70d1f220dd5b4419476be7c473c8849.jpg" alt="Gambar 3" class="slide">
+    </div>
+    <button id="prev">Prev</button>
+    <button id="next">Next</button>
+
+    <script>
+        $(document).ready(function(){
+            var currentIndex = 0;
+            var slides = $('.slide');
+            var totalSlides = slides.length;
+
+            $('#next').click(function(){
+                slides.eq(currentIndex).fadeOut(500, function(){
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                    slides.eq(currentIndex).fadeIn(500);
+                });
+            });
+
+            $('#prev').click(function(){
+                slides.eq(currentIndex).fadeOut(500, function(){
+                    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                    slides.eq(currentIndex).fadeIn(500);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

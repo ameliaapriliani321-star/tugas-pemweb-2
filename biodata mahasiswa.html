@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Dinamis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #biodata {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px auto;
+            width: 300px;
+            background-color: #f4f;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Halaman Biodata</h1>
+    <div id="biodata">
+        <h2 id="nama">Nama: Amelia Apriliani</h2>
+        <p id="nim">NIM: 0110125072</p>
+        <p id="prodi">Program Studi: Sistem Informasi</p>
+        <img src= "https://i.pinimg.com/236x/21/e3/47/21e347ba342ff772ff9e87b7230b689d.jpg" alt="Foto Profil" width="110px" height="100px">
+    </div>
+    
+    <button onclick="ubahNama()">Ubah Nama</button>
+    <button onclick="ubahProdi()">Ubah Program Studi</button>
+    <button onclick="gantiFoto()">Ganti Foto</button>
+    <button onclick="sembunyikanBiodata()">Sembunyikan Biodata</button>
+    <button onclick="tampilkanBiodata()">Tampilkan Biodata</button>
+
+    <script>
+        function ubahNama() {
+            var namaBaru = prompt("Masukkan nama baru:");
+            if (namaBaru) {
+                document.getElementById("nama").innerHTML = "Nama: " + namaBaru;
+            }
+        }
+
+        function ubahProdi() {
+            var prodiBaru = prompt("Masukkan program studi baru:");
+            if (prodiBaru) {
+                document.getElementById("prodi").innerHTML = "Program Studi: " + prodiBaru;
+            }
+        }
+
+        function gantiFoto() {
+            var fotoBaru = prompt("Masukkan URL foto baru:");
+            if (fotoBaru) {
+                document.getElementById("foto").setAttribute("src", fotoBaru);
+            }
+        }
+
+        function sembunyikanBiodata() {
+            document.getElementById("biodata").style.display = "none";
+        }
+
+        function tampilkanBiodata() {
+            document.getElementById("biodata").style.display = "block";
+        }
+    </script>
+</body>
+</html>

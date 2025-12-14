@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Interaktif</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .faq {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .question {
+            background-color: #FFC0CB;
+            padding: 10px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+        }
+        .answer {
+            display: none;
+            padding: 10px;
+            background-color: #e9e9;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>FAQ Interaktif</h1>
+    <div class="faq">
+        <div class="question">Apa itu jQuery?</div>
+        <div class="answer">jQuery adalah pustaka JavaScript yang memudahkan manipulasi DOM, event handling, dan animasi.</div>
+        
+        <div class="question">Bagaimana cara menginstall jQuery?</div>
+        <div class="answer">Anda bisa mengunduhnya dari situs resmi atau menggunakan CDN seperti Google atau jQuery CDN.</div>
+        
+        <div class="question">Apa fungsi .click() di jQuery?</div>
+        <div class="answer">.click() digunakan untuk menangani event klik pada elemen HTML.</div>
+        
+        <div class="question">Apa perbedaan .hover() dan .toggle()?</div>
+        <div class="answer">.hover() menangani mouseenter dan mouseleave, sedangkan .toggle() menampilkan atau menyembunyikan elemen.</div>
+        
+        <div class="question">Mengapa menggunakan jQuery untuk FAQ?</div>
+        <div class="answer">jQuery memudahkan pembuatan interaktivitas seperti toggle jawaban tanpa banyak kode JavaScript murni.</div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.question').click(function(){
+                $(this).next('.answer').toggle();
+            });
+            
+            $('.question').hover(
+                function(){
+                    $(this).css('color', 'blue');
+                },
+                function(){
+                    $(this).css('color', '');
+                }
+            );
+        });
+    </script>
+</body>
+</html>
